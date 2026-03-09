@@ -18,32 +18,32 @@ export const useTestMocks = () => {
     //     setTasks(taskMock);
     // };
 
-    const totaltasks = useMemo(() => {
+    const totaltasksLength = useMemo(() => {
         console.log(tasks)
         if (tasks.length === 0) return 0;
         return tasks.length;
     }, [tasks]);
 
-    const completedTasks = useMemo(() => {
+    const completedTasksLength = useMemo(() => {
         if (tasks.length === 0) return 0;
         return tasks.filter(task => task.isDone).length;
     }, [tasks]);
 
-    const ongoingTasks = useMemo(() => {
+    const ongoingTasksLength = useMemo(() => {
         if (tasks.length === 0) return 0;
         return tasks.filter(task => task.isOngoing).length;
     }, [tasks]);
 
-    const priorityTasks = useMemo(() => {
+    const priorityTasksLength = useMemo(() => {
         if (tasks.length === 0) return 0;
         return tasks.filter(task => task.isPriority).length;
     }, [tasks]);
 
     return {
         tasks,
-        totaltasks,
-        completedTasks,
-        ongoingTasks,
-        priorityTasks
+        totaltasksLength,
+        completedTasksLength,
+        ongoingTasksLength,
+        priorityTasksLength
     }
 }

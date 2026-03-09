@@ -7,7 +7,7 @@ import { PiExcludeSquareFill } from "react-icons/pi";
 
 
 export const Overview = () => {
-    const { tasks, totaltasks, ongoingTasks, priorityTasks, completedTasks } = useTestMocks();
+    const { tasks, totaltasksLength, ongoingTasksLength, priorityTasksLength, completedTasksLength } = useTestMocks();
 
     const BAR_DISPLAY: string = "overview-tasks-bar";
     const SQUARE_DISPLAY: string = "overview-tasks-square";
@@ -64,19 +64,19 @@ export const Overview = () => {
                 </article>
                 <article className='overview-header-stats'>
                     <div className='stat-box stat-box--primary'>
-                        <p className='stat-title'>{totaltasks}</p>
+                        <p className='stat-title'>{totaltasksLength}</p>
                         <p className="stat-desc">Total Tasks</p>
                     </div>
                     <div className='stat-box stat-box--secondary'>
-                        <p className='stat-title'>{priorityTasks}</p>
+                        <p className='stat-title'>{priorityTasksLength}</p>
                         <p className="stat-desc">High Priority Tasks</p>
                     </div>
                     <div className='stat-box stat-box--completed'>
-                        <p className='stat-title'>{completedTasks}</p>
+                        <p className='stat-title'>{completedTasksLength}</p>
                         <p className="stat-desc">Completed Tasks</p>
                     </div>
                     <div className='stat-box stat-box--secondary'>
-                        <p className='stat-title'>{ongoingTasks}</p>
+                        <p className='stat-title'>{ongoingTasksLength}</p>
                         <p className="stat-desc">Ongoing Tasks</p>
                     </div>
                 </article>
