@@ -2,6 +2,7 @@ import { useTestNames } from "../hooks/UseTestNames.tsx";
 
 export const TestPage = () => {
     const { loading, error, testNames } = useTestNames();
+    // console.log(`Date: ${new Date()} Type of new Date(): ${typeof new Date()}`);
 
     const renderTestNames = () => {
         if (testNames.length === 0) {

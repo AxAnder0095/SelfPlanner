@@ -1,0 +1,32 @@
+$text-color: #22181C;
+$primary-color: #F6E8EA;
+$secondary-color: #F45B69;
+$font-family: 'Montserrat', sans-serif;
+$font-family-secondary: 'Montserrat Alternates', sans-serif;
+
+.Overview {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+
+
+    height: 100%;
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    scrollbar-gutter: stable;
+
+    &::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $text-color;
+        border-radius: 10px;
+    }
+}

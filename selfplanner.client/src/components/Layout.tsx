@@ -11,6 +11,9 @@ export const Layout = () => {
             <main className="layout-main">
                 <Outlet />
             </main>
+            <div className="layout-stats">
+                <p>Stats</p>
+            </div>
         </div>
     )
 };
