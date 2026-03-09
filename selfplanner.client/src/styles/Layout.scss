@@ -1,7 +1,7 @@
 .Layout {
     height: 100vh;
     display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-columns: repeat(9, minmax(0, 1fr));
     color: black;
 }
 
@@ -14,13 +14,13 @@
 
 .layout-main {
     background-color: #F5D9DD;
-    grid-column: 2 / 7;
+    grid-column: 2 / 8;
     padding: 2rem 1rem;
     overflow: hidden;
 }
 
 .layout-stats{ 
     background-color: #F6E8EA;
-    grid-column: 7 / 8;
+    grid-column: 8 / 10;
     padding: 2rem 1rem;
 }

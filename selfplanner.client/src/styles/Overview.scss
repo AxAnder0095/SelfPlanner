@@ -1,8 +1,10 @@
 $text-color: #22181C;
 $primary-color: #F6E8EA;
 $secondary-color: #F45B69;
+// $secondary-color: #5BF484;
 $font-family: 'Montserrat', sans-serif;
 $font-family-secondary: 'Montserrat Alternates', sans-serif;
+$font-family-tertiary: 'Roboto Mono', monospace;
 
 .Overview {
     display: flex;
@@ -11,22 +13,6 @@ $font-family-secondary: 'Montserrat Alternates', sans-serif;
 
     height: 100%;
     min-height: 0;
-    overflow-y: auto;
-    padding-right: 0.5rem;
-    scrollbar-gutter: stable;
-
-    &::-webkit-scrollbar {
-        width: 0.5rem;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: rgba($color: $text-color, $alpha: 0.7);
-        border-radius: 10px;
-    }
 }
 
 .overview-header {
@@ -69,6 +55,159 @@ $font-family-secondary: 'Montserrat Alternates', sans-serif;
     }
 }
 
-.stat-box--primary { background-color: $text-color; color: $secondary-color;}
-.stat-box--secondary { background-color: $primary-color;}
-.stat-box--completed { background-color: $secondary-color; color: $primary-color;}
+.stat-box--primary {
+    background-color: $text-color;
+    color: $secondary-color;
+}
+
+.stat-box--secondary {
+    background-color: $primary-color;
+}
+
+.stat-box--completed {
+    background-color: $secondary-color;
+    color: $primary-color;
+}
+
+.overview-format-buttons {
+    display: flex;
+    gap: 1rem;
+
+    .bar-format,
+    .square-format {
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        background-color: $primary-color;
+        color: $text-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: $secondary-color;
+            color: $primary-color;
+            transition: all 0.3s ease;
+        }
+    }
+}
+
+.overview-tasks-bar {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+
+    margin-top: 2rem;
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    scrollbar-gutter: stable;
+
+    &::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba($color: $text-color, $alpha: 0.7);
+        border-radius: 10px;
+    }
+
+    .overview-task-bar {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        border-radius: 0.5rem;
+        background-color: $text-color;
+        color: $primary-color;
+        height: 100%;
+        overflow: hidden;
+        height: 120px;
+
+        .task-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $secondary-color;
+
+            p {
+                color: white;
+            }
+        }
+
+        .task-header,
+        .task-description,
+        .task-status {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            gap: 0.5rem;
+            padding: 1rem;
+
+            h3 {
+                font-family: $font-family-secondary;
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+
+            p {
+                font-family: $font-family;
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+        }
+
+        .task-actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+
+            button {
+                border: none;
+                padding: 1rem 0;
+                background-color: transparent;
+                color: $secondary-color;
+                font-family: $font-family;
+                font-weight: bold;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                width: 100px;
+
+                &:hover {
+                    background-color: $secondary-color;
+                    color: $primary-color;
+                    transition: all 0.3s ease;
+                }
+            }
+        }
+    }
+}
+
+.overview-tasks-square {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+
+    margin-top: 2rem;
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    scrollbar-gutter: stable;
+
+    &::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba($color: $text-color, $alpha: 0.7);
+        border-radius: 10px;
+    }
+}

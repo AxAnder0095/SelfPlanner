@@ -9,7 +9,7 @@ interface Task {
 };
 
 export const taskMock: Task[] = [
-    { id: "1", task: "Wash Laundry", description: "Description for Task 1", isOngoing: true, isDone: false, isPriority: true, date: new Date() },
+    { id: "1", task: "Wash Laundry", description: "Wash all the towls from this week and last.", isOngoing: true, isDone: false, isPriority: true, date: new Date() },
     { id: "2", task: "Clean Room", description: "Description for Task 2", isOngoing: false, isDone: true, isPriority: false, date: new Date() },
     { id: "3", task: "Buy Groceries", description: "Description for Task 3", isOngoing: true, isDone: false, isPriority: false, date: new Date() },
     { id: "4", task: "Finish Project", description: "Description for Task 4", isOngoing: false, isDone: true, isPriority: true, date: new Date() },
