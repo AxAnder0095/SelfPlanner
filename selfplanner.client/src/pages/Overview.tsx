@@ -9,11 +9,13 @@ import { PiExcludeSquareFill } from "react-icons/pi";
 export const Overview = () => {
     const { tasks, totaltasksLength, ongoingTasksLength, priorityTasksLength, completedTasksLength } = useTestMocks();
 
+    // Display types
     const BAR_DISPLAY: string = "overview-tasks-bar";
     const SQUARE_DISPLAY: string = "overview-tasks-square";
     const BAR_TASK: string = "overview-task-bar";
     const SQUARE_TASK: string = "overview-task-square";
 
+    // State for display types
     const [displayType, setDisplayType] = useState<string>(BAR_DISPLAY);
     const [taskDisplayType, setTaskDisplayType] = useState<string>(BAR_TASK);
 
@@ -27,23 +29,23 @@ export const Overview = () => {
                         <p><PiExcludeSquareFill size={40} /></p>
                     </div>
                     <div className='task-header'>
-                        <h3>Task</h3>
-                        <p>{task.task}</p>
+                        {/* <h3>Task</h3> */}
+                        <h3>{task.task}</h3>
                         <p>{task.date.toDateString()}</p>
                     </div>
                     <div className='task-description'>
-                        <h3>Description</h3>
+                        {/* <h3>Description</h3> */}
                         <p>{task.description}</p>
                     </div>
                     <div className='task-status'>
-                        <h3>Status</h3>
-                        <p>{task.isOngoing ? "Ongoing: Yes" : "Ongoing: No"}</p>
-                        <p>{task.isPriority ? "Priority: High" : "Priority: Low"}</p>
+                        {/* <h3>Status</h3> */}
+                        <p>{task.isOngoing ? "Ongoing" : "Finished"}</p>
+                        <p>{task.isPriority ? "High Priority" : "Low Priority"}</p>
                     </div>
                     <div className='task-actions'>
                         {/* <h3>Actions</h3> */}
-                        <button>Edit</button>
-                        <button>Delete</button>
+                        <button aria-label='edit button'>Edit</button>
+                        <button aria-label='delete button'>Delete</button>
                     </div>
                 </div>
             ))
@@ -81,8 +83,24 @@ export const Overview = () => {
                     </div>
                 </article>
                 <article className='overview-format-buttons'>
-                    <button className='bar-format' onClick={() => toggleDisplayType(BAR_DISPLAY, BAR_TASK)}><PiChartBarHorizontalFill /></button>
-                    <button className='square-format' onClick={() => toggleDisplayType(SQUARE_DISPLAY, SQUARE_TASK)}><PiSquaresFourFill /></button>
+                    <button
+                        type='button'
+                        aria-label='bar button'
+                        aria-pressed={displayType === BAR_DISPLAY}
+                        className={`bar-format ${displayType === BAR_DISPLAY ? 'is-active' : ''}`}
+                        onClick={() => toggleDisplayType(BAR_DISPLAY, BAR_TASK)}
+                    >
+                        <PiChartBarHorizontalFill />
+                    </button>
+                    <button
+                        type='button'
+                        aria-label='square button'
+                        aria-pressed={displayType === SQUARE_DISPLAY}
+                        className={`square-format ${displayType === SQUARE_DISPLAY ? 'is-active' : ''}`}
+                        onClick={() => toggleDisplayType(SQUARE_DISPLAY, SQUARE_TASK)}
+                    >
+                        <PiSquaresFourFill />
+                    </button>
                 </article>
             </section>
             <section className={displayType}>

@@ -3,24 +3,30 @@
     display: grid;
     grid-template-columns: repeat(9, minmax(0, 1fr));
     color: black;
+
+    // background: radial-gradient(circle at 30%,
+    //         #161113,
+    //         #161113 50%,
+    //         #ff2b59 75%,
+    //         #161113 75%);
+    background-color: #161113;
 }
 
-.layout-header{
+.layout-header {
     grid-column: 0 / 2;
-    background-color: #F6E8EA;
     align-items: center;
     padding: 2rem 1rem;
 }
 
 .layout-main {
-    background-color: #F5D9DD;
+    // background-color: #161113;
     grid-column: 2 / 8;
     padding: 2rem 1rem;
     overflow: hidden;
 }
 
-.layout-stats{ 
-    background-color: #F6E8EA;
+.layout-stats {
+    // background-color: #161113;
     grid-column: 8 / 10;
     padding: 2rem 1rem;
 }
