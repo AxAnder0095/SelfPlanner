@@ -1,11 +1,19 @@
-// $text-color: #22181C;
+// Variables for colors, fonts
 $text-color: #FFFFFF;
 $primary-color: #F6E8EA;
 $secondary-color: #ff2b59;
 $font-family: 'Montserrat', sans-serif;
 $font-family-secondary: 'Montserrat Alternates', sans-serif;
 
-.Navbar{
+// Variables for breakpoints
+$mobile-screen: 600px;
+$tablet: 767px;
+$small-screen: 1024px;
+$desktop: 1200px;
+$large-screen: 1440px;
+$large-desktop: 1920px;
+
+.Navbar {
     font-size: 1.2rem;
     display: flex;
     flex-direction: column;
@@ -27,7 +35,7 @@ $font-family-secondary: 'Montserrat Alternates', sans-serif;
     color: $text-color;
 }
 
-.nav-links{
+.nav-links {
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -67,6 +75,58 @@ $font-family-secondary: 'Montserrat Alternates', sans-serif;
             background-color: rgba($color: #22181C, $alpha: 0.8);
             color: $secondary-color;
             transition: all 0.3s ease;
+        }
+    }
+}
+
+@media (max-width: $large-screen) {
+    .Navbar {
+        font-size: 1rem;
+    }
+
+    .nav-content {
+        gap: 5rem;
+    }
+
+    .nav-logo {
+        font-size: 2.2rem;
+    }
+
+    .nav-links {
+        gap: 2rem;
+    }
+
+    .nav-logout {
+        .logout-button {
+            width: 150px;
+            font-size: 1.2rem;
+            padding: 1rem 1.5rem;
+        }
+    }
+}
+
+@media (max-width: $desktop) {
+    .Navbar {
+        font-size: 0.8rem;
+    }
+
+    .nav-content {
+        gap: 5rem;
+    }
+
+    .nav-logo {
+        font-size: 2rem;
+    }
+
+    .nav-links {
+        gap: 2rem;
+    }
+
+    .nav-logout {
+        .logout-button {
+            width: 120px;
+            font-size: 1rem;
+            padding: 1rem 1.5rem;
         }
     }
 }

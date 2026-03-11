@@ -7,7 +7,7 @@ $font-family: 'Montserrat', sans-serif;
 $font-family-secondary: 'Montserrat Alternates', sans-serif;
 $font-family-tertiary: 'Roboto Mono', monospace;
 
-.Overview {
+.Finished {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -15,63 +15,26 @@ $font-family-tertiary: 'Roboto Mono', monospace;
     min-height: 0;
 }
 
-.overview-header {
+.finished-header {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     color: $primary-color;
 }
 
-.overview-header-title {
+.finished-header-title {
     font-family: $font-family-secondary;
     font-size: 2rem;
     font-weight: bold;
 }
 
-.overview-header-stats {
+.finished-header-stats {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
 }
 
-.stat-box {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    // border-radius: 0.5rem;
-
-    .stat-title {
-        font-family: $font-family-secondary;
-        font-size: 4.5rem;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-    }
-
-    .stat-desc {
-        font-family: $font-family;
-        font-size: 0.8rem;
-        font-weight: 500;
-    }
-}
-
-.stat-box--primary {
-    background-color: $secondary-color;
-    color: $text-color;
-}
-
-.stat-box--secondary {
-    background-color: $text-color;
-    color: $primary-color;
-}
-
-.stat-box--completed {
-    background-color: $text-color;
-    color: $primary-color;
-}
-
-.overview-format-buttons {
+.finished-format-buttons {
     display: flex;
     gap: 1rem;
 
@@ -101,7 +64,7 @@ $font-family-tertiary: 'Roboto Mono', monospace;
     }
 }
 
-.overview-tasks-bar {
+.finished-tasks-bar {
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
     gap: 1rem;
@@ -125,7 +88,7 @@ $font-family-tertiary: 'Roboto Mono', monospace;
         border-radius: 10px;
     }
 
-    .overview-task-bar {
+    .finished-task-bar {
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
         // border-radius: 0.5rem;
@@ -134,10 +97,76 @@ $font-family-tertiary: 'Roboto Mono', monospace;
         height: 100%;
         overflow: hidden;
         height: 120px;
+
+        .finished-task-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $text-color;
+
+            p {
+                color: $secondary-color;
+            }
+        }
+
+        .finished-task-header,
+        .finished-task-description,
+        .finished-task-status {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+
+            h3 {
+                font-family: $font-family-secondary;
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: $primary-color;
+            }
+
+            p {
+                font-family: $font-family;
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: rgba($color: $primary-color, $alpha: 0.7);
+            }
+        }
+
+        .finished-task-header {
+            p {
+                color: rgba($color: $primary-color, $alpha: 0.7);
+                font-size: 0.7rem;
+            }
+        }
+
+        .finished-task-actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+
+            button {
+                border: none;
+                padding: 1rem 0;
+                background-color: transparent;
+                color: $secondary-color;
+                font-family: $font-family;
+                font-weight: bold;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                width: 100px;
+
+                &:hover {
+                    background-color: $secondary-color;
+                    color: $primary-color;
+                    transition: all 0.3s ease;
+                }
+            }
+        }
     }
 }
 
-.overview-tasks-square {
+.finished-tasks-square {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
@@ -157,80 +186,7 @@ $font-family-tertiary: 'Roboto Mono', monospace;
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: rgba($color: $secondary-color, $alpha: 0.7);
+        background-color: rgba($color: $text-color, $alpha: 0.7);
         border-radius: 10px;
-    }
-
-    .overview-task-square {
-        background-color: $text-color;
-        color: $primary-color;
-        // overflow: hidden;
-        // height: 300px;
-    }
-}
-
-.overview-task-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $text-color;
-
-    p {
-        color: $secondary-color;
-    }
-}
-
-.overview-task-header,
-.overview-task-description,
-.overview-task-status {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 1rem;
-
-    h3 {
-        font-family: $font-family-secondary;
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: $primary-color;
-    }
-
-    p {
-        font-family: $font-family;
-        font-size: 0.9rem;
-        font-weight: 500;
-        color: rgba($color: $primary-color, $alpha: 0.7);
-    }
-}
-
-.overview-task-header {
-    p {
-        color: rgba($color: $primary-color, $alpha: 0.7);
-        font-size: 0.7rem;
-    }
-}
-
-.overview-task-actions {
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-
-    button {
-        border: none;
-        padding: 1rem 0;
-        background-color: transparent;
-        color: $secondary-color;
-        font-family: $font-family;
-        font-weight: bold;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        width: 100px;
-
-        &:hover {
-            background-color: $secondary-color;
-            color: $primary-color;
-            transition: all 0.3s ease;
-        }
     }
 }

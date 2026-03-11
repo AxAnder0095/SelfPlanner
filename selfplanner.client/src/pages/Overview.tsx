@@ -25,24 +25,24 @@ export const Overview = () => {
         return (
             tasks.map(task => (
                 <div key={task.id} className={taskDisplayType}>
-                    <div className='task-icon'>
+                    <div className='overview-task-icon'>
                         <p><PiExcludeSquareFill size={40} /></p>
                     </div>
-                    <div className='task-header'>
+                    <div className='overview-task-header'>
                         {/* <h3>Task</h3> */}
                         <h3>{task.task}</h3>
                         <p>{task.date.toDateString()}</p>
                     </div>
-                    <div className='task-description'>
+                    <div className='overview-task-description'>
                         {/* <h3>Description</h3> */}
                         <p>{task.description}</p>
                     </div>
-                    <div className='task-status'>
+                    <div className='overview-task-status'>
                         {/* <h3>Status</h3> */}
                         <p>{task.isOngoing ? "Ongoing" : "Finished"}</p>
                         <p>{task.isPriority ? "High Priority" : "Low Priority"}</p>
                     </div>
-                    <div className='task-actions'>
+                    <div className='overview-task-actions'>
                         {/* <h3>Actions</h3> */}
                         <button aria-label='edit button'>Edit</button>
                         <button aria-label='delete button'>Delete</button>

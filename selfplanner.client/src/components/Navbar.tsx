@@ -11,7 +11,6 @@ export const Navbar = () => {
                     <NavLink to="/priority" className={({ isActive }) => isActive ? 'link active' : 'link'}>High Priority</NavLink>
                     <NavLink to="/ongoing" className={({ isActive }) => isActive ? 'link active' : 'link'}>Ongoing</NavLink>
                     <NavLink to="/finished" className={({ isActive }) => isActive ? 'link active' : 'link'}>Finished</NavLink>
-                    <NavLink to="/test" className={({ isActive }) => isActive ? 'link active' : 'link'}>Test Page</NavLink>
                 </div>
             </div>
             <div className='nav-logout'>
