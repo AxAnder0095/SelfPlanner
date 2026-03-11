@@ -7,7 +7,7 @@ import { PiExcludeSquareFill } from "react-icons/pi";
 
 
 export const Overview = () => {
-    const { tasks, totaltasksLength, ongoingTasksLength, priorityTasksLength, completedTasksLength } = useTestMocks();
+    const { tasks, totalTasksLength, ongoingTasksLength, priorityTasksLength, completedTasksLength } = useTestMocks();
 
     // Display types
     const BAR_DISPLAY: string = "overview-tasks-bar";
@@ -66,7 +66,7 @@ export const Overview = () => {
                 </article>
                 <article className='overview-header-stats'>
                     <div className='stat-box stat-box--primary'>
-                        <p className='stat-title'>{totaltasksLength}</p>
+                        <p className='stat-title'>{totalTasksLength}</p>
                         <p className="stat-desc">Total Tasks</p>
                     </div>
                     <div className='stat-box stat-box--secondary'>

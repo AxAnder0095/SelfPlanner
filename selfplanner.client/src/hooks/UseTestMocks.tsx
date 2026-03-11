@@ -12,38 +12,33 @@ interface Task {
 };
 
 export const useTestMocks = () => {
-    const [tasks, setTasks] = useState<Task[]>(taskMock);
+    const [tasks] = useState<Task[]>(taskMock);
 
-    // const fetchTasks = () => {
-    //     setTasks(taskMock);
-    // };
+    // Derive all task stats/lists in one pass and memoize once.
+    const derived = useMemo(() => {
+        const ongoing: Task[] = [];
+        const completed: Task[] = [];
+        const priority: Task[] = [];
 
-    const totaltasksLength = useMemo(() => {
-        console.log(tasks)
-        if (tasks.length === 0) return 0;
-        return tasks.length;
-    }, [tasks]);
+        for (const task of tasks) {
+            if (task.isOngoing) ongoing.push(task);
+            if (task.isDone) completed.push(task);
+            if (task.isPriority) priority.push(task);
+        }
 
-    const completedTasksLength = useMemo(() => {
-        if (tasks.length === 0) return 0;
-        return tasks.filter(task => task.isDone).length;
-    }, [tasks]);
-
-    const ongoingTasksLength = useMemo(() => {
-        if (tasks.length === 0) return 0;
-        return tasks.filter(task => task.isOngoing).length;
-    }, [tasks]);
-
-    const priorityTasksLength = useMemo(() => {
-        if (tasks.length === 0) return 0;
-        return tasks.filter(task => task.isPriority).length;
+        return {
+            totalTasksLength: tasks.length,
+            completedTasksLength: completed.length,
+            ongoingTasksLength: ongoing.length,
+            priorityTasksLength: priority.length,
+            ongoingTasks: ongoing,
+            completedTasks: completed,
+            priorityTasks: priority,
+        };
     }, [tasks]);
 
     return {
         tasks,
-        totaltasksLength,
-        completedTasksLength,
-        ongoingTasksLength,
-        priorityTasksLength
+        ...derived,
     }
 }
